@@ -1,0 +1,24 @@
+{
+  "name": "goit-node.js-hw-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrii-Mishchenko/goit-node.js-hw-01.git"
+  },
+  "keywords": [],
+  "author": "ANDRII_MISHCHENKO <a.mishenko2001@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrii-Mishchenko/goit-node.js-hw-01/issues"
+  },
+  "homepage": "https://github.com/Andrii-Mishchenko/goit-node.js-hw-01#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
