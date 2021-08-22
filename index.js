@@ -27,7 +27,7 @@ function invokeAction({ action, id, name, email, phone }) {
 
     case 'add':
       if ((argv.name, argv.email, argv.phone)) {
-        contactsOperations.addContact(name, email, phone);
+          contactsOperations.addContact({ name, email, phone });
       } else console.log("name, email or phone is not correct");
       break;
 

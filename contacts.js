@@ -8,6 +8,7 @@ const listContacts = async () => {
   try {
     const data = await fs.readFile(contactsPath);
     const contacts = JSON.parse(data)
+    // console.log(contacts)
     return contacts;
   }
   catch (error) {
@@ -19,10 +20,11 @@ const listContacts = async () => {
 const getContactById = async (id) => {
   try {
     const contacts = await listContacts();
-    const selectContact = contacts.find(item => item.id === id);
+    const selectContact = contacts.find(item => String(item.id) === String(id));
     if (!selectContact) {
       throw new Error(`Product with id=${id} not found`);
     }
+    console.log(selectContact)
     return selectContact;
   }
   catch (error) {
@@ -34,15 +36,16 @@ const getContactById = async (id) => {
 const removeContact = async (id) => {
   try {
     const contacts = await listContacts();
-    const idx = contacts.findIndex(item => item.id === id);
+    const idx = contacts.findIndex(item => String(item.id) === String(id));
     if (idx === -1) {
       throw new Error(`Product with id=${id} not found`);
     }
-    const newContacts = contacts.filter(item => item.id !== id);
-    // const newContacts = splice(idx, 1);
+    const newContacts = contacts.filter(item => String(item.id) !== String(id));
 
     const contactsString = JSON.stringify(newContacts);
     await fs.writeFile(contactsPath, contactsString);
+
+    console.log(contacts[idx])
     return contacts[idx];
   }
   catch (error) {
@@ -52,15 +55,17 @@ const removeContact = async (id) => {
 
 
 const addContact = async (newContactData) => {
-  try {    
-    const newContact = { ...newContactData, id: v4() };
+  try {
     const contacts = await listContacts();
+    const newContact = { ...newContactData, id: v4() };
+  
     // const newContacts = [...contacts, newContact]
     contacts.push(newContact)
 
     const contactsString = JSON.stringify(contacts);
     await fs.writeFile(contactsPath, contactsString);
     
+    console.log(newContact)
     return newContact
   }
   catch (error) {
