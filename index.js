@@ -1,5 +1,5 @@
 const { Command } = require('commander');
-const contactsOperations = require('./contacts');
+const contactsOperations = require('./db');
 
 const program = new Command();
 program
@@ -49,18 +49,22 @@ invokeAction(argv);
 
 // (async () => {
 //     try {
-//         // get all contacts:
-//         const contacts = await contactsOperations.listContacts();
-//         console.log(contacts);
+//         // // get all contacts:
+//         // const contacts = await contactsOperations.listContacts();
+//         // console.log(contacts);
 
 
 //         // // get contact by Id:
-//         // const contactById = await contactsOperations.getContactById(11);
+//         // const contactById = await contactsOperations.getContactById(1);
 //         // console.log(contactById);
+      
+//         // // update contact by Id:
+//         // const updateContact = await contactsOperations.updateContact(2, {email: 'dui.in@gmail.com'})
+//         // console.log(updateContact);
 
 
 //         // // delete contact:
-//         // const removeContact = await contactsOperations.removeContact(3);
+//         // const removeContact = await contactsOperations.removeContact(1);
 //         // console.log(removeContact);
 
 
